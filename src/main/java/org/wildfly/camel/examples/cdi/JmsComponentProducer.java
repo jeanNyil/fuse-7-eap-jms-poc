@@ -12,7 +12,7 @@ import org.apache.camel.component.jms.JmsComponent;
 import org.springframework.jms.connection.JmsTransactionManager;
 
 /**
- * Creates an instance of the Camel JmsComponent and configures it to support JMS transactions.
+ * Creates instances of the Camel JmsComponent
  */
 public class JmsComponentProducer {
 
