@@ -26,7 +26,6 @@ public class JmsComponentProducer {
         JmsTransactionManager jmsTransactionManager = new JmsTransactionManager(connectionFactory);
         
         // create JmsConfiguration for JmsComponent
-        // JmsConfiguration jmsConfiguration = new JmsConfiguration(poolingFactory);
         JmsConfiguration jmsConfiguration = new JmsConfiguration(connectionFactory);
         jmsConfiguration.setTransactionManager(jmsTransactionManager);
         jmsConfiguration.setCacheLevelName("CACHE_CONSUMER");
