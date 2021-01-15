@@ -2,10 +2,11 @@
 
 ## Pre-requisites
 
-- AMQ 7 Broker instance configured and running
-- EAP 7.3 with Fuse 7.8/EAP installed
-- Adjust the configuration of the [wildfly-maven-plugin](./pom.xml) accoring to your Fuse 7.8/EAP 7.3 environment
+- [**_Red Hat AMQ 7 Broker_**](https://access.redhat.com/documentation/en-us/red_hat_amq/2020.q4/html/getting_started_with_amq_broker/index) instance configured and running
+- **_Red Hat JBoss EAP 7.3_** with [**_Red Hat Fuse 7.8/EAP_**](https://access.redhat.com/documentation/en-us/red_hat_fuse/7.8/html/getting_started/getting-started-with-fuse-on-jboss-eap) installed and running
+- Adjust the configuration of the [wildfly-maven-plugin](./pom.xml) according to your **_Red Hat Fuse 7.8/EAP_** environment:
     ```
+    [...]
     <plugin>
         <groupId>org.wildfly.plugins</groupId>
         <artifactId>wildfly-maven-plugin</artifactId>
@@ -35,6 +36,7 @@
             </execution>
         </executions>
     </plugin>
+    [...]
     ```
 
 ## Deploy on EAP 7.3 using the wildfly-maven-plugin
