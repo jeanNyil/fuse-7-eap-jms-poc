@@ -31,7 +31,6 @@ public class JmsComponentProducer {
         jmsConfiguration.setTransactionManager(jmsTransactionManager);
         jmsConfiguration.setCacheLevelName("CACHE_CONSUMER");
 
-        //return JmsComponent.jmsComponent(connectionFactory);
         return JmsComponent.jmsComponent(jmsConfiguration);
     }
 
@@ -59,7 +58,6 @@ public class JmsComponentProducer {
         jmsConfiguration.setIncludeSentJMSMessageID(true);
         jmsConfiguration.setCacheLevelName("CACHE_AUTO");
 
-        //return JmsComponent.jmsComponent(connectionFactory);
         return JmsComponent.jmsComponent(jmsConfiguration);
     }
 }
