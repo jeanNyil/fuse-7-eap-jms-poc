@@ -41,16 +41,20 @@ public class JmsComponentProducer {
 
         // create pool transaction
         JmsPoolConnectionFactory poolingFactory = new JmsPoolConnectionFactory();
-
         poolingFactory.setConnectionFactory(connectionFactory);
+        // The maximum number of connections for a single pool. The default is 1.
         poolingFactory.setMaxConnections(1);
+        // The maximum number of sessions for each connection. The default is 500. A negative value removes any limit.
         poolingFactory.setMaxSessionsPerConnection(500);
-        // The time in milliseconds between periodic checks for expired connections. The default is 0, meaning the check is disabled.
-        // /!\ Can cause memory leaks
-        // poolingFactory.setConnectionCheckInterval(5000);
+        // The time in milliseconds between periodic checks for expired connections. 
+        // The default is 0, meaning the check is disabled. /!\ Can cause memory leaks if enabled
+        // poolingFactory.setConnectionCheckInterval(5000); 
         // The time in milliseconds before a connection not currently on loan can be evicted from the pool. 
         // The default is 30 seconds. A value of 0 disables the timeout.
-        poolingFactory.setConnectionIdleTimeout(30000);
+        poolingFactory.setConnectionIdleTimeout(30000); 
+        // If enabled, use a single anonymous JMS MessageProducer for all calls to createProducer(). 
+        // It is enabled by default.
+        poolingFactory.setUseAnonymousProducers(false); 
         
         // create JmsConfiguration for JmsComponent
         JmsConfiguration jmsConfiguration = new JmsConfiguration(poolingFactory);
