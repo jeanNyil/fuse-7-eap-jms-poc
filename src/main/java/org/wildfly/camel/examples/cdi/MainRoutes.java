@@ -25,7 +25,7 @@ public class MainRoutes extends RouteBuilder {
         // Enable use of breadcrumbId
         camelCtx.setUseBreadcrumb(true);
 
-        from("timer://scheduler?fixedRate=true&period=1000&delay=5000&repeatCount=10")
+        from("timer://scheduler?fixedRate=true&period=1000&delay=5000&repeatCount=30")
             .routeId("jms-producer-route")
             .setBody(simple("[${exchangeProperty.CamelTimerCounter}] - Hello from Camel!"))
             .log(LoggingLevel.INFO, "Sending message [${exchangeProperty.CamelTimerCounter}] to TEST.DURABLE.SUB")
