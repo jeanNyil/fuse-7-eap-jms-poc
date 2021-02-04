@@ -9,7 +9,7 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.LoggingLevel;
 
 @ApplicationScoped
-@ContextName("camel-cdi-context")
+@ContextName("jms-poc-context")
 public class MainRoutes extends RouteBuilder {
 
     @Inject
