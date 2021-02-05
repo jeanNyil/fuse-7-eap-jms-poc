@@ -28,18 +28,18 @@ public class MainRoutes extends RouteBuilder {
         from("timer://scheduler?fixedRate=true&period=1000&delay=5000&repeatCount=30")
             .routeId("jms-producer-route")
             .setBody(simple("[${exchangeProperty.CamelTimerCounter}] - Hello from Camel!"))
-            .log(LoggingLevel.INFO, "Sending message [${exchangeProperty.CamelTimerCounter}] to TEST.DURABLE.SUB")
+            .log(LoggingLevel.INFO, ">>> Sending message [${exchangeProperty.CamelTimerCounter}] to TEST.DURABLE.SUB")
             .to("jms-out:topic:TEST.DURABLE.SUB");
         ;
         
         from("jms-in:topic:TEST.DURABLE.SUB?clientId=fuse78-eap-consumer" +
-             "&acknowledgementModeName=CLIENT_ACKNOWLEDGE" + 
+             "&transacted=true" + 
              "&concurrentConsumers=5" +
              "&subscriptionDurable=true" +
              "&subscriptionShared=true" +
              "&subscriptionName=jms-consumer-route")
             .routeId("jms-consumer-route")
-            .log(LoggingLevel.INFO, "${body}")
+            .log(LoggingLevel.INFO, ">>> Received message: ${body}")
         ;
     }
 }

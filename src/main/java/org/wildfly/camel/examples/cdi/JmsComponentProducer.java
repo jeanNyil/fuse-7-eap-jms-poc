@@ -29,6 +29,7 @@ public class JmsComponentProducer {
         JmsConfiguration jmsConfiguration = new JmsConfiguration(connectionFactory);
         jmsConfiguration.setTransactionManager(jmsTransactionManager);
         jmsConfiguration.setCacheLevelName("CACHE_CONSUMER");
+        jmsConfiguration.setTransacted(true);
 
         return JmsComponent.jmsComponent(jmsConfiguration);
     }
